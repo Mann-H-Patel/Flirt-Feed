@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flirt-Feed Home Page</title>
+  <!-- Added Oswald for Sigma Mode -->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Pacifico&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/loviter.css" />
+</head>
+
+<body class="sigma-theme">
+  <!-- Theme Toggle Button -->
+  <div class="theme-switch">
+    <button id="themeToggle">Switch to Pookie Mode</button>
+  </div>
+
+  <header class="header">
+    <h1 class="title">Yahhh! Welcome to Flirt-Feed</h1>
+  </header>
+
+  <div class="posts-container">
+    <a href="/posts/addPost" class="add-post-button">Add Post</a>
+    <% for(let post of posts) { %>
+      <div class="post-card">
+        <h2 class="post-username">Meee! <%= post.username %></h2>
+        <p class="post-content">I Said! <%= post.content %></p>
+        <a href="/posts/<%= post.id %>" class="view-post-button">View Post</a>
+        <a href="/posts/<%= post.id %>/edit" class="view-post-button">Edit Post</a>
+        <form method="post" action="/post/<%= post.id %>?_method=DELETE">
+          <button type="submit" class="view-post-button">Delete Post</button>
+        </form>
+      </div>
+    <% } %>
+  </div>
+
+  <footer>
+    <div class="footer-message">
+      <p>Loviter: A place for love and luxury!</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("themeToggle").addEventListener("click", function () {
+      document.body.classList.toggle("sigma-theme");
+      document.body.classList.toggle("pookie-theme");
+      const isPookie = document.body.classList.contains("pookie-theme");
+      this.textContent = isPookie ? "Switch to Sigma Mode" : "Switch to Pookie Mode";
+    });
+  </script>
+</body>
+
+</html>

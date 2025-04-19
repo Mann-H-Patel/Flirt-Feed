@@ -1,0 +1,5 @@
+1. GET => retrieves resources.
+2. POST => submits new data to the server
+3. PUT =>  updates existing data
+4. PATCH => update existing data partially
+5. DELETE => removes data

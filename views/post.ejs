@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Post</title>
+  <link rel="stylesheet" href="/post.css" />
+</head>
+<body class="sigma-theme">
+  <div class="theme-switch">
+    <button id="themeToggle">Switch to Pookie Mode</button>
+  </div>
+
+  <div class="post-container">
+    <div class="post-card">
+      <h2 class="post-id">Post ID: <%= data.id %></h2>
+      <h3 class="username">@<%= data.username %></h3>
+      <p class="post-content">"<%= data.content %>"</p>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("themeToggle").addEventListener("click", function () {
+      document.body.classList.toggle("sigma-theme");
+      document.body.classList.toggle("pookie-theme");
+      
+      const isPookie = document.body.classList.contains("pookie-theme");
+      this.textContent = isPookie ? "Switch to Sigma Mode" : "Switch to Pookie Mode";
+    });
+  </script>
+</body>
+</html>

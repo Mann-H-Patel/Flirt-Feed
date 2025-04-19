@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Create a Post - Loviter</title>
+  <!-- Import Google Fonts for both themes -->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Pacifico&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/addPost.css" />
+</head>
+<body class="sigma-theme">
+  <!-- Theme Toggle Button -->
+  <div class="theme-switch">
+    <button id="themeToggle">Switch to Pookie Mode</button>
+  </div>
+
+  <div class="container">
+    <h1>Create a New Post</h1>
+    <form action="http://localhost:3000/posts" method="post">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required placeholder="Enter your username" />
+      </div>
+
+      <div class="form-group">
+        <label for="content">Content</label>
+        <textarea maxlength="500" id="content" name="content" required placeholder="Write your post here..."></textarea>
+      </div>
+
+      <button type="submit" class="submit-button">Post</button>
+    </form>
+    
+    <a href="/Posts" class="back-link">Go Back to Home</a>
+  </div>
+
+  <script>
+    document.getElementById("themeToggle").addEventListener("click", function () {
+      document.body.classList.toggle("sigma-theme");
+      document.body.classList.toggle("pookie-theme");
+      const isPookie = document.body.classList.contains("pookie-theme");
+      this.textContent = isPookie ? "Switch to Sigma Mode" : "Switch to Pookie Mode";
+    });
+  </script>
+</body>
+</html>
